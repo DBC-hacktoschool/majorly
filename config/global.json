@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.5.0"
+  },
+  "applications": {
+    "_default": {
+      "link": "majorly"
+    },
+    "majorly": {
+      "applicationId": "HfU6NDpr9CX1Aa6WZr15OTkkUsIVeErVvCoHZLjX",
+      "masterKey": "062RduGnhXdmq3pCAu8xHgKYWIk8JCKsLQIyiOD0"
+    }
+  }
+}
