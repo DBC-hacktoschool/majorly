@@ -28,3 +28,13 @@ app.get('/', function(req, res) {
 
 // Attach the Express app to Cloud Code.
 app.listen();
+
+$(document).ready(function(){
+
+  $('.container').append(function(){
+
+      return '<img src="./views/assets/images/logo_majorly_.text.png" />';
+
+  })
+
+})
