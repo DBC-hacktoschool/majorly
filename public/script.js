@@ -45,6 +45,16 @@ function chooseStudy () {
 
       })
 
+      var iconArray =
+      [
+      'assets/images/icon_stem.png',
+      'assets/images/icon_art.png',
+      'assets/images/icon_business.png',
+      'assets/images/icon_ss.png',
+      'assets/images/icon_humanities.png',
+      'assets/images/icon_idk_-.png'
+      ]
+
       while (count < 5) {
 
 
@@ -52,11 +62,11 @@ function chooseStudy () {
 
           if (count === 0) {
 
-            return'<div id="' + count + '" style="width:18%;display:inline-block;border:1px solid red;">' + count + '</div>';
+            return '<div id="' + count + '" style="width:18%;display:inline-block;"><a id="'+ count + 'pic' + '" href="dashboard.html"><img src="' + iconArray[count] + '" /></a></div>';
 
           } else {
 
-              return '<div id="' + count + '" style="width:18%;display:inline-block;border:1px solid red;margin-left: 5px">' + count + '</div>';
+             return '<div id="' + count + '" style="width:18%;display:inline-block; margin-left:5px;"><a id="'+ count + 'pic' + '" href="dashboard.html"><img src="' + iconArray[count] + '" /></a></div>';
 
           }
 
@@ -69,7 +79,14 @@ function chooseStudy () {
 
       $('.container').append(function() {
 
-        return '<div style="border:1px solid green;width:18%;margin:25px auto"id="no-se">' + count + '<div>';
+        return '<div style="width:18%;margin:25px auto" id="no-se"><img src="' + iconArray[count] +  '"/></div>';
+
+      })
+
+      //Click Handler to trigger quiz
+      $('#no-se').on('click', function(event) {
+
+            startQuiz();
 
       })
 
@@ -84,7 +101,7 @@ function startQuiz() {
   var msg = '<p class="intro-header"> Let\'s get to know you better </p>'
 
   //Clear image and container
-  $('.container img').delay(3000).fadeOut(2000, function () {
+  $('.container').fadeOut(1000, function () {
     //Empty the container
     $('.container').empty();
 
@@ -102,17 +119,19 @@ function makeQ () {
 
 
   //Create and hide all questions
-  $('.intro-header').fadeOut(2000, function() {
+  $('.intro-header').delay(1000).fadeOut(2000, function() {
 
     //Empty the container to allow for the questions
     $('.container').empty();
 
     _.each(questions, function (question, index) {
 
+      console.log(index);
+
       $('.container').append(function(){
 
 
-        return '<div id="' + index + '">' + question + '<hr></div>'
+        return '<div id="' + index + '" style="color:red;">' + question + '<hr></div>'
 
       });
 
@@ -128,7 +147,7 @@ function makeQ () {
 
               if (j === 0) {
 
-                return '<button style="margin: 10px 0 10px 0">' + answer + '</button>' + '<br>';
+                return '<button style="margin: 10px 0 20px 0">' + answer + '</button>' + '<br>';
 
               }
 
@@ -285,10 +304,15 @@ function showStudyArea (mode) {
 
         return '<p class="result">Please wait while we configure your workspace :)</p>'
 
-      }).hide().fadeIn(1000);
+      }).hide().fadeIn(1000).delay(2000).fadeOut(2000, function() {
+
+        $('.container').empty().append(function () {
+
+          return '<a href="dashboard.html" id="dashboard-link">Take me to my <span style="color:red;">Workspace</span></a>'
+
+        }).hide().fadeIn(1000);
+
+      });
 
     })
-
-
-
 }

@@ -100,14 +100,46 @@ button {
   border: 1px solid white;
   color: white;
   padding: 10px 25px;
-  width: 250px;
+  width: 500px;
   font-family: "Comfortaa", sans-serif;
-  font-size: .8em;
-  margin: 0 0 10px 0;
+  font-size: .75em;
+  margin: 0 0 20px 0;
   background-color: #293f50;
 }
 
 button:hover {
   background-color: darkgray;
   border: 3px solid white;
+}
+
+/* ========== CHOICES ========= */
+
+.choice-container img {
+  width: 100%;
+}
+
+#no-se img {
+
+  width: 100%;
+
+}
+
+#no-se img:hover {
+
+  width:110%;
+
+}
+
+#dashboard-link {
+
+  color:white;
+  text-decoration: none;
+  margin: 50% 0 0 0;
+
+}
+
+#dashboard-link:hover {
+
+  font-size: 2em;
+
 }
