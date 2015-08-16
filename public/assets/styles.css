@@ -44,8 +44,8 @@ table {
     border-spacing: 0;
 }
 
+/* ========== CUSTOM STYLES ========= */
 body {
-
   max-width: 960px;
   margin: 0 auto;
   text-align: center;
@@ -59,8 +59,7 @@ body {
 
 }
 
-.container
-{
+.container {
 
   margin: 10% auto;
   border: 1px solid red;
@@ -68,10 +67,24 @@ body {
 
 }
 
-.intro-header
-{
-
+.intro-header {
   margin: 15% auto;
   border: 1px solid green
+}
 
+/* ========== BUTTONS ========= */
+
+button {
+  border-radius: 50%;
+  border: 1px solid white;
+  color: white;
+  padding: 15px 25px;
+  width: 150px;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: darkgray;
+  border: 3px solid white;
 }
