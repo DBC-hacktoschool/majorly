@@ -44,11 +44,29 @@ table {
     border-spacing: 0;
 }
 
+/* ========== CUSTOM STYLES ========= */
 body {
-
   max-width: 960px;
-  margin: 0 auto;
-  background-image: radial-gradient(black, #6c6c6c);
+  height: 100%;
+  background-image: linear-gradient(#a1d3b0 , #f6f1d3);
+  background-repeat: no-repeat;
   text-align: center;
+  margin: 0 auto;
+}
 
+/* ========== BUTTONS ========= */
+
+button {
+  border-radius: 50%;
+  border: 1px solid white;
+  color: white;
+  padding: 15px 25px;
+  width: 150px;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: darkgray;
+  border: 3px solid white;
 }
