@@ -48,7 +48,30 @@ body {
 
   max-width: 960px;
   margin: 0 auto;
-  background-image: radial-gradient(black, #6c6c6c);
   text-align: center;
+  color: white;
+  font-family: "Comfortaa", sans-serif;
+  font-size: 2em;
+  height: 100%;
+  background-color: black;
+  /*background-image: linear-gradient(#a1d3b0  , #f6f1d3 );
+  background-repeat: no-repeat;*/
+
+}
+
+.container
+{
+
+  margin: 10% auto;
+  border: 1px solid red;
+  height: 100%;
+
+}
+
+.intro-header
+{
+
+  margin: 15% auto;
+  border: 1px solid green
 
 }
