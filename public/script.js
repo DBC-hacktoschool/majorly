@@ -36,15 +36,23 @@ function startQuiz() {
     //Display intro text and lead into first question
     $('.container').append(msg).hide().fadeIn(2000, function() {
 
-      
+      showQ();
 
     });
   })
 }
 
+//Function will render the quiz of questions.
 function showQ () {
 
+  //Lead into first quesiton
+  $('.intro-header').fadeOut(3000, function() {
 
+    //
+    $('.container').empty().append(question1).hide().fadeIn(3000)
+
+
+  })
 
 
 }
