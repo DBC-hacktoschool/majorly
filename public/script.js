@@ -95,7 +95,7 @@ function showQ () {
 
   //Initialize counter variable to match index of questions array
   var counter = 0;
-  var score = 0;
+  var scores = [];
 
   //Show first question
   $('#' + counter).fadeIn(2000);
@@ -105,6 +105,32 @@ function showQ () {
 
     counter += 1;
 
+    if (counter > 4) {
+
+      var mode = findMode(scores);
+      console.log('Score list: ' + scores);
+      console.log('Mode: ' + mode);
+
+      showStudyArea(mode);
+
+    }
+
+    var buttonClicked = $(this).text();
+
+    _.each(answers, function(answerList){
+
+
+      _.each(answerList, function(answer, i) {
+
+        if (buttonClicked === answer) {
+          scores.push(i);
+
+        }
+
+      })
+
+
+    })
 
 
     $('#' + (counter - 1)).remove()
@@ -112,8 +138,87 @@ function showQ () {
     $('#' + counter).fadeIn(1000);
 
 
+  })
+}
+
+//Function will find the most frequently occurring number in answer set.
+function findMode(array) {
+  var mode, count = 0;
+
+  _.each(array, function (number, index) {
+    var num, c = 0;
+
+    _.each(array, function (num, i) {
+
+      if (i === index) {
+
+        return;
+
+      } else if (num === number) {
+
+        c += 1;
+      }
+
+    })
+
+    if (c > count) {
+
+      count = c;
+      mode = number;
+
+    }
 
   })
+
+  if (mode === undefined) {
+
+    return Math.floor(Math.random() * 5)
+
+  } else {
+
+    return mode;
+
+  }
+
+}
+
+//Function will tell user what area of study they
+function showStudyArea (mode) {
+  var areaOfStudy;
+
+  console.log(mode);
+
+  switch (mode) {
+
+    case 0:
+      areaOfStudy = 'STEM';
+      break;
+
+    case 1:
+      areaOfStudy = 'Business';
+      break;
+
+    case 2:
+        areaOfStudy = 'Humanities';
+        break;
+
+    case 3:
+          areaOfStudy = 'Art';
+          break;
+
+    case 4:
+          areaOfStudy = 'Social Sciences';
+          break;
+    }
+
+    //Empty out container and tell the user what of area of study they fall in
+    $('.container').empty()
+
+    $('.container').append(function () {
+
+      return 'Wow, You\'re quite unique! We think ' + '<span style="color:red;font-weight:bold;">' + areaOfStudy + '</span>' + ' would best fit your interests. Please wait while we configure your workspace :)';
+
+    })
 
 
 
