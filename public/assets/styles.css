@@ -50,7 +50,8 @@ body {
   margin: 0 auto;
   text-align: center;
   color: white;
-  font-family: "Comfortaa", sans-serif;
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
   font-size: 2em;
   height: 100%;
   background-color: black;
@@ -62,26 +63,40 @@ body {
 .container {
 
   margin: 10% auto;
-  border: 1px solid red;
   height: 100%;
 
 }
 
-.intro-header {
-  margin: 15% auto;
-  border: 1px solid green
+p {
+
+  font-size: 1.5em;
+
 }
 
+p.intro-header
+{
+
+  margin: 25% auto;
+
+}
+
+div hr {
+
+  padding: 0 20%;
+
+}
 /* ========== BUTTONS ========= */
 
 button {
-  border-radius: 50%;
+  border-radius: 5px;
   border: 1px solid white;
   color: white;
-  padding: 15px 25px;
-  width: 150px;
+  padding: 10px 25px;
+  width: 250px;
   font-family: "Comfortaa", sans-serif;
-  font-size: 1em;
+  font-size: .8em;
+  margin: 0 0 10px 0;
+  background-color: #293f50;
 }
 
 button:hover {
