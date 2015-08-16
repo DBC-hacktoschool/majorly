@@ -80,11 +80,19 @@ p.intro-header
 
 }
 
+p.result
+{
+
+  margin: 20% auto;
+
+}
+
 div hr {
 
   padding: 0 20%;
 
 }
+
 /* ========== BUTTONS ========= */
 
 button {

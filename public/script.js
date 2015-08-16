@@ -16,9 +16,66 @@ function renderLogo () {
 
     return '<img src="./assets/images/logo_majorly_text.png" />';
 
-  }).fadeIn(3000);
+  }).fadeIn(2000);
 
-  startQuiz();
+  chooseStudy();
+
+}
+
+//Function will render areas of study for user to choose from and 'i don't know button' that will trigger quiz
+function chooseStudy () {
+
+  //Clear image and container
+  $('.container img').delay(3000).fadeOut(2000, function () {
+    //Empty the container
+    $('.container').empty();
+
+    //Display intro text and lead into first question
+    $('.container').append(function(){
+
+      return '<p class="choice-intro" style="font-size:1em;">Please choose your relevant area of study. <br> <span style="color:red;font-size:.5em;">If you have not chosen one yet, please choose the "I don\'t know" button</span></p><hr>';
+
+
+    }).hide().fadeIn(2000, function() {
+      var count = 0;
+
+      $('.container').append(function() {
+
+        return '<div class="choice-container" style="margin: 5% auto"></div>'
+
+      })
+
+      while (count < 5) {
+
+
+        $('.choice-container').append(function(){
+
+          if (count === 0) {
+
+            return'<div id="' + count + '" style="width:18%;display:inline-block;border:1px solid red;">' + count + '</div>';
+
+          } else {
+
+              return '<div id="' + count + '" style="width:18%;display:inline-block;border:1px solid red;margin-left: 5px">' + count + '</div>';
+
+          }
+
+
+        })
+
+        count++;
+
+      }
+
+      $('.container').append(function() {
+
+        return '<div style="border:1px solid green;width:18%;margin:25px auto"id="no-se">' + count + '<div>';
+
+      })
+
+
+    });
+  })
 
 }
 
@@ -27,7 +84,7 @@ function startQuiz() {
   var msg = '<p class="intro-header"> Let\'s get to know you better </p>'
 
   //Clear image and container
-  $('.container img').delay(3000).fadeOut(3000, function () {
+  $('.container img').delay(3000).fadeOut(2000, function () {
     //Empty the container
     $('.container').empty();
 
@@ -45,7 +102,7 @@ function makeQ () {
 
 
   //Create and hide all questions
-  $('.intro-header').fadeOut(3000, function() {
+  $('.intro-header').fadeOut(2000, function() {
 
     //Empty the container to allow for the questions
     $('.container').empty();
@@ -133,9 +190,13 @@ function showQ () {
     })
 
 
-    $('#' + (counter - 1)).remove()
+    $('#' + (counter - 1)).fadeOut(1000, function() {
 
-    $('#' + counter).fadeIn(1000);
+      $(this).remove();
+
+    })
+
+    $('#' + counter).delay(1000).fadeIn(2000);
 
 
   })
@@ -195,19 +256,19 @@ function showStudyArea (mode) {
       break;
 
     case 1:
-      areaOfStudy = 'Business';
+      areaOfStudy = 'Art';
       break;
 
     case 2:
-        areaOfStudy = 'Humanities';
+        areaOfStudy = 'Business';
         break;
 
     case 3:
-          areaOfStudy = 'Art';
+          areaOfStudy = 'Social Sciences';
           break;
 
     case 4:
-          areaOfStudy = 'Social Sciences';
+          areaOfStudy = 'Humanities';
           break;
     }
 
@@ -216,7 +277,15 @@ function showStudyArea (mode) {
 
     $('.container').append(function () {
 
-      return 'Wow, You\'re quite unique! We think ' + '<span style="color:red;font-weight:bold;">' + areaOfStudy + '</span>' + ' would best fit your interests. Please wait while we configure your workspace :)';
+      return '<p class="result">Wow, You\'re quite unique! We think ' + '<span style="color:red;font-weight:bold;">' + areaOfStudy + '</span>' + ' would best fit your interests.</p>';
+
+    }).hide().fadeIn(2000).delay(1000).fadeOut(2000, function () {
+
+      $('.container').empty().append(function () {
+
+        return '<p class="result">Please wait while we configure your workspace :)</p>'
+
+      }).hide().fadeIn(1000);
 
     })
 
