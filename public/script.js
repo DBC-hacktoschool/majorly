@@ -1,19 +1,61 @@
 $(document).ready(function() {
 
   //Prep container for logo fadeIn
-  $('.container').hide();
+  //$('.container').hide();
 
   //Trigger function to display logo
-  renderLogo();
+  //renderLogo();
+  parseInit();
 
-  $( "#test_button" ).click(function() {
+  Parse.$ = jQuery;
+
+  $("#test_button1").click(function() {
     // For testing the date retrive.
-    parseInit();
+    Parse.User.logIn("yuzhang", "1234", {
+      success: function(user) {
+        // Do stuff after successful login.
+        alert("Success");
+      },
+      error: function(user, error) {
+        // The login failed. Check error to see why.
+        alert(" Error: " + error.code + " " + error.message);
+      }
+    });
+
     parseGet("STEM");
-  });  
+  });
+
+  // Sign up.
+  $("form").submit(function() {
+    alert("Submitted");
+
+    var user = new Parse.User();
+
+    $( "input:first" ).val() === "correct" 
+    user.set("username", $( "input:first" ).val());
+
+    user.set("firstName", $( "input:first" ).val());
+    user.set("lastName", $( "input:first" ).val());
+    user.set("password", $( "input:first" ).val());
+    user.set("email", "email@example.com");
+
+    // other fields can be set just like with Parse.Object
+    user.set("phone", "415-392-0202");
+
+    user.signUp(null, {
+      success: function(user) {
+        // Hooray! Let them use the app now.
+        alert("Su succ");
+      },
+      error: function(user, error) {
+        // Show the error message somewhere and let the user try again.
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });
+  });
 })
 
-function parseInit () {
+function parseInit() {
   Parse.initialize("HfU6NDpr9CX1Aa6WZr15OTkkUsIVeErVvCoHZLjX", "6IbILyoYwoxBpWaWSDiiBHpSEMUA3iaVCEKX6t3R");
 }
 
@@ -25,12 +67,12 @@ function parseGet(table) {
     success: function(results) {
       var object = results[0];
       alert("descp: " + object.get("descp"));
-        // generate page content here
-      },
-      error: function(error) {
-        alert("Error: " + error.code + " " + error.message);
-      }
-    });
+      // generate page content here
+    },
+    error: function(error) {
+      alert("Error: " + error.code + " " + error.message);
+    }
+  });
 }
 
 function showTest() {
@@ -57,10 +99,10 @@ function showTest() {
 }
 
 //Function will display logo on center of the screen
-function renderLogo () {
+function renderLogo() {
 
   //Fade display in
-  $('.container').append(function(){
+  $('.container').append(function() {
 
     return '<img src="./assets/images/logo_majorly_text.png" />';
 
@@ -76,7 +118,7 @@ function startQuiz() {
   var answers;
 
   //Clear image and container
-  $('.container img').delay(3000).fadeOut(3000, function () {
+  $('.container img').delay(3000).fadeOut(3000, function() {
     //Empty the container
     $('.container').empty();
 
@@ -90,12 +132,12 @@ function startQuiz() {
 }
 
 //Function will render the quiz of questions.
-function showQ () {
+function showQ() {
   //Lead into first quesiton
   $('.intro-header').fadeOut(3000, function() {
 
     var question1 = '<h1 class="question">Which of the following would you rather to do?</h1>'
-    //
+      //
     $('.container').empty().append(question1).hide().fadeIn(3000)
   })
 }
