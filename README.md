@@ -1,4 +1,5 @@
 ### Mission Statement
+Author: Yu Zhang
 
 Majorly is a content curating web application for students both who have decided which degree they will undetake and those who are currently undecided.
 
