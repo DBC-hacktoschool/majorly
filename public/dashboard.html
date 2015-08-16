@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Majorly | Dashboard</title>
+    <link rel="stylesheet" href="assets/dashboard-styles.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+
+  <aside class="sidebar">
+
+    <div class="logo-bg">
+      <a href="#" id="home"><img src="assets/images/logo_char.png" alt="Majorly Character Logo" /></a>
+    </div>
+
+    <div class="sidebar-nav">
+      <a href="#" id="side-event"><img src="assets/images/workspace_event.png" alt="" /></a>
+      <a href="#" id="side-class"><img src="assets/images/workspace_class.png" alt="" /></a>
+      <a href="#" id="side-forum"><img src="assets/images/workspace_forum.png" alt="" /></a>
+      <a href="#" id="side-meetup"><img src="assets/images/workspace_meetup.png" alt="" /></a>
+    </div>
+    </aside>
+
+    <aside class="topright">
+
+    </aside>
+
+  <div class="container">
+
+      <section class="row">
+        <a href="#" id="event-link">
+        <div class="col-1-2" id="event">
+
+        </div>
+      </a>
+
+      <a href="#" id="class-link">
+        <div class="col-1-2" id="class">
+
+        </div>
+      </a>
+      </section>
+
+  <!-- ROW TWO -->
+      <section class="row">
+        <a href="#" id="meetup-link">
+          <div class="col-1-2" id="meetup">
+
+          </div>
+        </a>
+
+        <a href="#" id="forum-link">
+          <div class="col-1-2" id="forum">
+
+          </div>
+        </a>
+      </section>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script type="text/javascript">
+
+  $('.sidebar-nav').hide();
+
+  //clickhandler for workspace intro
+  var linkIds = ['meetup-link', 'class-link', 'forum-link', 'event-link']
+
+  $('.row a').on('click', function() {
+
+      var clicked = this.id;
+
+    _.each(linkIds, function(name) {
+
+      if(clicked === name) {
+
+        var url = "assets/images/workspace_" + clicked.substring(0, clicked.length - 5) + ".png"
+
+        $('#' + clicked + ' div').removeClass('col-1-2');
+
+        $('.topright').append("<img src=" + url + " />");
+
+      }
+
+      else {
+
+        var id = name;
+
+        $('#' + id).fadeOut();
+
+      }
+
+    })
+
+    $('.sidebar-nav').fadeIn();
+
+  });
+
+  //clickhandler for sidebar navigation
+
+  $('.sidebar-nav a').on('click', function(event) {
+
+    $('.topright').empty();
+
+    var clicked = this.id;
+
+    var url2 = "assets/images/workspace_" + clicked.substring(5, clicked.length) + ".png"
+
+    $('.topright').append("<img src=" + url2 + " />");
+
+  })
+
+
+//object for courses
+
+var courses = [
+  {
+    name: "Control of Mobile Robotics",
+    description: 'Learn about how to make mobile robots move in effective, safe, predictable, and collaborative ways using modern control theory.',
+    url: 'https://www.coursera.org/course/conrob'
+  },
+  {
+    name: "How to Use Git and Github",
+    description: 'How to Use Git and Github focuses on the use of version control with Git, a specific version control system, and GitHub, a collaboration platform.',
+    url: 'https://www.udacity.com/course/how-to-use-git-and-github--ud775'
+  }
+]
+//clickhandler for all links to populate with content
+  $('a').on('click', function() {
+
+
+    if(this.id === 'meetup-link' || this.id === 'side-meetup') {
+      $('.container').empty();
+
+      var groups = ['http://meetu.ps/2M3JvX', 'http://meetu.ps/2M3K0P', 'http://meetu.ps/2M3Kqw', 'http://meetu.ps/2M3L3Y']
+
+      _.each(groups, function(group) {
+
+        $('.container').append('<iframe width="225" height="570" src="' + group + '" frameborder="0"></iframe>');
+
+      })
+
+
+
+    }
+
+    else if (this.id === 'event-link' || this.id === 'side-event') {
+      $('.container').empty();
+      console.log('whoa')
+
+    }
+
+    else if (this.id === 'class-link' || this.id === 'side-class') {
+      $('.container').empty();
+
+
+      _.each(courses, function(course) {
+        $('.container').append('<div class="' + course.name + '"></div>')
+
+        $('.' + course.name).append([
+      $('<div class=name>').text(course.name),
+      $('<div class=desc>').text(course.description),
+      $('<div class=url>').append('<a href="' + course.url + '">Sign Up Here!</a>')
+    ])
+
+    });
+
+    }
+
+    else if (this.id === 'forum-link' || this.id === 'side-forum') {
+      $('.container').empty();
+      console.log('come on')
+
+    }
+
+  });
+
+  </script>
+
+  </body>
+</html>

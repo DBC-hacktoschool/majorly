@@ -1,0 +1,154 @@
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ======== CUSTOM STYLES ======== */
+body {
+  background-color: lightgray;
+}
+
+.container {
+  margin: 0 0 0 13%;
+  text-align: center;
+  height: 100%;
+  padding-top: 25px;
+}
+
+/* ======== GRID ======== */
+
+.row {
+  margin: 0px;
+}
+
+.col-1-2 {
+  display: inline-block;
+  width: 330px;
+  height: 250px;
+  margin: 0 0;
+}
+
+/*div.col-1-2 {
+  position: relative;
+}*/
+
+.topright {
+  top: 0;
+  right: 0;
+  float: right;
+  display: inline-block;
+}
+
+.topright img {
+  height: 100px;
+  opacity: .5;
+}
+/* ======== SIDEBAR ======== */
+.sidebar {
+  background-color: #6c6c6c;
+  width: 12%;
+  height: 100%;
+  float: left;
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar img {
+  max-width: 85%;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.logo-bg {
+  background-color: white;
+  border-radius: 50%;
+  margin: 10px 10px;
+}
+/* ======== ICONS ======== */
+
+#meetup {
+  background-image: url(images/workspace_meetup.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+#event {
+  background-image: url(images/workspace_event.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+}
+
+#forum {
+  background-image: url(images/workspace_forum.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+#class {
+  background-image: url(images/workspace_class.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+/* ======== IFRAME ======== */
+
+iframe {
+  margin-left: 15px;
+}
+
+/* ======== COURSES ======== */
+
+.courses {
+  width: 100%;
+  height: 20%;
+  border: 2px solid green;
+  margin: 5px;
+}
