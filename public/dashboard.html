@@ -58,6 +58,10 @@
 
   </div>
 
+  <div class="content">
+
+  </div>
+
   <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script type="text/javascript">
@@ -112,26 +116,14 @@
   })
 
 
-//object for courses
 
-var courses = [
-  {
-    name: "Control of Mobile Robotics",
-    description: 'Learn about how to make mobile robots move in effective, safe, predictable, and collaborative ways using modern control theory.',
-    url: 'https://www.coursera.org/course/conrob'
-  },
-  {
-    name: "How to Use Git and Github",
-    description: 'How to Use Git and Github focuses on the use of version control with Git, a specific version control system, and GitHub, a collaboration platform.',
-    url: 'https://www.udacity.com/course/how-to-use-git-and-github--ud775'
-  }
-]
 //clickhandler for all links to populate with content
   $('a').on('click', function() {
 
 
     if(this.id === 'meetup-link' || this.id === 'side-meetup') {
       $('.container').empty();
+      $('.content').empty();
 
       var groups = ['http://meetu.ps/2M3JvX', 'http://meetu.ps/2M3K0P', 'http://meetu.ps/2M3Kqw', 'http://meetu.ps/2M3L3Y']
 
@@ -147,30 +139,35 @@ var courses = [
 
     else if (this.id === 'event-link' || this.id === 'side-event') {
       $('.container').empty();
-      console.log('whoa')
+      $('.content').empty();
+
+      $('.content').append("<div class='eventbox'></div>")
+      $('.content').append("<div class='eventbox'></div>")
+      $('.content').append("<div class='eventbox'></div>")
+      $('.content').append("<div class='eventbox'></div>")
 
     }
 
     else if (this.id === 'class-link' || this.id === 'side-class') {
       $('.container').empty();
+      $('.content').empty();
 
-
-      _.each(courses, function(course) {
-        $('.container').append('<div class="' + course.name + '"></div>')
-
-        $('.' + course.name).append([
-      $('<div class=name>').text(course.name),
-      $('<div class=desc>').text(course.description),
-      $('<div class=url>').append('<a href="' + course.url + '">Sign Up Here!</a>')
-    ])
-
-    });
+    $('.content').append("<div class='courses'></div>")
+    $('.content').append("<div class='courses'></div>")
+    $('.content').append("<div class='courses'></div>")
+    $('.content').append("<div class='courses'></div>")
 
     }
 
     else if (this.id === 'forum-link' || this.id === 'side-forum') {
       $('.container').empty();
-      console.log('come on')
+      $('.content').empty();
+
+
+    $('.content').append("<div class='discussion'></div>")
+    $('.content').append("<div class='discussion'></div>")
+    $('.content').append("<div class='discussion'></div>")
+    $('.content').append("<div class='discussion'></div>")
 
     }
 
