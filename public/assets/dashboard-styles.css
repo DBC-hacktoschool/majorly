@@ -47,6 +47,7 @@ table {
 /* ======== CUSTOM STYLES ======== */
 body {
   background-color: lightgray;
+  font-family: "Lato", sans-serif;
 }
 
 .container {
@@ -147,8 +148,40 @@ iframe {
 /* ======== COURSES ======== */
 
 .courses {
-  width: 100%;
-  height: 20%;
-  border: 2px solid green;
+  width: 80%;
+  height: 150px;
+  border: 2px dashed white;
   margin: 5px;
+  background-color: darkgray;
+  border-radius: 5px;
+}
+
+.content {
+  margin-top: 100px;
+  margin: 0 0 0 13%;
+}
+
+.eventbox {
+  width: 20%;
+  height: 250px;
+  border: 2px dashed white;
+  margin: 5px;
+  background-color: darkgray;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.eventbox {
+  background-image: url(http://www.itancan.net/mop/temp/wp-content/uploads/2011/10/img_inMedia.jpg);
+  background-repeat: no-repeat;
+}
+
+.discussion {
+  width: 80%;
+  height: 100px;
+  border: 2px dashed white;
+  margin: 5px;
+  background-color: lightblue;
+  border-radius: 5px;
+  text-align: center;
 }
