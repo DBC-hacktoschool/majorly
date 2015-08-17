@@ -1,5 +1,7 @@
 ### Mission Statement
-Author: Yu Zhang
+Author: Yu Zhang, Jira Yinyoo, Andrew Deal, Yunjin Kim, Stephanie Imperial, Yijie Ma
+
+Live version: majorly.parseapp.com
 
 Majorly is a content curating web application for students both who have decided which degree they will undetake and those who are currently undecided.
 
